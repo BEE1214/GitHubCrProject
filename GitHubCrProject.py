@@ -106,4 +106,3 @@ def main():
 if __name__ == '__main__':
     # Source code
     main()
-    pass
