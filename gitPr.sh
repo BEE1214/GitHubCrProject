@@ -2,6 +2,10 @@
 
 function gitPr () {
     # Check if arguments aren't empty
+
+    FILE="$1.$2"
+    FOLDER="~/Documents/FunProjects/GitHubCrProject/gitPr.sh"
+
     if [ -z "$2" ]; then 
         echo Second argument is empty...
         echo Exiting...
@@ -9,7 +13,7 @@ function gitPr () {
         echo No argument entered...
         echo Exiting...
     else
-        if [ ! -d "$~/Documents/FunProjects/$1" ]; then
+        if [ ! -d "$FOLDER" ]; then
             mkdir ~/Documents/FunProjects/$1
             echo Creating folder $1...
             cd ~/Documents/FunProjects/$1
@@ -20,7 +24,7 @@ function gitPr () {
 
         python GitHubCrProject.py $1 $2
         touch README.md
-        if [ -d "~/Documents/FunProjects/$1.$2"]; then
+        if [ -f "$FILE" ]; then
             chmod 744 $1.$2
             git init
             git remote add origin git@github.com:BEE1214/$1.git
