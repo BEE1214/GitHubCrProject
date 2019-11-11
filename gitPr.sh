@@ -4,7 +4,7 @@ function gitPr () {
     # Check if arguments aren't empty
 
     FILE="$1.$2"
-    FOLDER="~/Documents/FunProjects/GitHubCrProject/gitPr.sh"
+    FOLDER="~/Documents/FunProjects/$1"
 
     if [ -z "$2" ]; then 
         echo Second argument is empty...
@@ -22,17 +22,26 @@ function gitPr () {
             cd ~/Documents/FunProjects/$1
         fi
 
-        python GitHubCrProject.py $1 $2
-        touch README.md
+        python ~/Documents/FunProjects/GitHubCrProject/GitHubCrProject.py $1 $2
         if [ -f "$FILE" ]; then
             chmod 744 $1.$2
+            echo Creatin README.md file...
+            touch README.md
+            echo "# $1" >> README.md
+            echo Initializing git repository...
             git init
-            git remote add origin git@github.com:BEE1214/$1.git
+            echo Adding all files to repository...
             git add .
+            echo Commiting initial commit...
             git commit -m "Initial commit"
+            echo Adding origin to https://github.com/BEE1214/$1.git
+            git remote add origin https://github.com/BEE1214/$1.git
+            echo Pushing files to GitH ub...
             git push -u origin master
-            lsd -l --group-dirs first
+            lsd -la --group-dirs first
             code .
+            code README.md
+            code $1.$2
         else
             echo File $1.$2 does not exist...
         fi
