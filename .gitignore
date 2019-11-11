@@ -2,3 +2,6 @@
 
 # Variables for python script
 variables.py
+
+# Ingoring pycache
+__pycache__
