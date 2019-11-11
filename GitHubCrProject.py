@@ -9,8 +9,8 @@ import sys
 import os
 import datetime
 from github import Github
+from variables import token
 
-token = ""
 
 def py():
     print(f'Creating {argv[1]}.{argv[2]}...')
