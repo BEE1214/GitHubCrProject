@@ -22,28 +22,28 @@ function gitPr () {
             cd ~/Documents/FunProjects/$1
         fi
 
-        python ~/Documents/FunProjects/GitHubCrProject/GitHubCrProject.py $1 $2
+        python3 ~/Documents/FunProjects/GitHubCrProject/GitHubCrProject.py $1 $2
         if [ -f "$FILE" ]; then
             chmod 744 $1.$2
-            echo Creatin README.md file...
+            echo "Creatin README.md file"
             touch README.md
             echo "# $1" >> README.md
-            echo Initializing git repository...
+            echo "Initializing git repository"
             git init
-            echo Adding all files to repository...
+            echo "Adding all files to repository"
             git add .
-            echo Commiting initial commit...
+            echo "Commiting initial commit"
             git commit -m "Initial commit"
-            echo Adding origin to https://github.com/BEE1214/$1.git
+            echo "Adding origin to https://github.com/BEE1214/$1.git"
             git remote add origin https://github.com/BEE1214/$1.git
-            echo Pushing files to GitH ub...
+            echo "Pushing files to GitHub"
             git push -u origin master
             lsd -la --group-dirs first
             code .
             code README.md
             code $1.$2
         else
-            echo File $1.$2 does not exist...
+            echo "File $1.$2 does not exist"
         fi
     fi
 }
