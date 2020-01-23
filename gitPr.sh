@@ -1,8 +1,6 @@
 #!/bin/bash
 
 function gitPr () {
-    # Check if arguments aren't empty
-
 
     case $1 in
         -h) if [[ $# -gt 1 ]]; then
@@ -57,4 +55,5 @@ function gitPr () {
                 fi
             fi
         ;;
+    esac
 }
