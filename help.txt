@@ -1,0 +1,14 @@
+Usage:
+    createPr [command] [ProjectName] [FileTemplate]
+Command:
+    -h     show this help
+File Templates:
+    - bash script        sh
+    - c                  c
+    - cpp                cpp
+    - python             py
+    - VHDL               vhd
+    - latex              tex
+Describtion:
+    Simple command for poject creation. Command navigates to your folder for projects. 
+    Creates new folder with choosen project name.
